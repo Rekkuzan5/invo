@@ -1,24 +1,21 @@
-{{-- @extends('layout.app')
+@extends('layout.app')
 
 @section('content')
-    <div class="flex justify-center">
-        <div class="w-8/12 bg-white p-6 rounded-lg">
-            <div>
-                <h1>Add a New Empire</h1>
-                <form action="/civilizations/update" method="POST">
+    <div class="container mx-auto">
+                <form class="flex flex-col mt-6" action="/civilizations" method="POST">
                     @csrf
-                    <label for="name">Empire name:</label>
-                    <input type="text" id="name" name="name" value="{{ $civilization->name }}"><br>
-                    <label for="expansion">Expansion name:</label>
-                    <select name="expansion" id="expansion" value="{{ $civilization->expansion }}">
+                    <label class="font-bold" for="name">Empire name:</label>
+                    <input class="border-solid border-2 border-black-100 rounded-md h-10 pl-2" type="text" id="name" name="name" value=""><br>
+                    <label class="font-bold" for="expansion">Expansion name:</label>
+                    <select class="border-solid border-2 border-black-100 rounded-md h-10 pl-2" name="expansion" id="expansion" value="">
                         <option value="The Conquerors">The Conquerors</option>
                         <option value="Age of Kings">Age of Kings</option>
                         <option value="African Kingdoms">African Kingdoms</option>
                         <option value="Rise of Rajas">Rise of Rajas</option>
                         <option value="Forgotten Empires">Forgotten Empires</option>
                     </select><br>
-                    <label for="army_type">Army Type:</label>
-                    <select name="army_type" id="army_type" value="{{ $civilization->army_type }}">
+                    <label class="font-bold" for="army_type">Army Type:</label>
+                    <select class="border-solid border-2 border-black-100 rounded-md h-10 pl-2" name="army_type" id="army_type" value="">
                         <option value="Infantry and Monk">Infantry and Monk</option>
                         <option value="Foot Archer">Foot Archer</option>
                         <option value="Defensive">Defensive</option>
@@ -39,13 +36,15 @@
                         <option value="Naval and Gunpowder">Naval and Gunpowder</option>
                         <option value="Calvary Infantry">Calvary Infantry</option>
                     </select><br>
-                    <label for="team_bonus">Team bonus:</label>
-                    <input type="text" id="team_bonus" name="team_bonus" value="{{ $civilization->team_bonus }}"><br>
-                    <label for="civilization_bonus">Civilization_bonus:</label>
-                    <input type="text" id="civilization_bonus" name="civilization_bonus" value="{{ $civilization->civilization_bonus }}"><br>
-                    <input type="submit" value="Update Empire">
+                    <label class="font-bold" for="team_bonus">Team bonus:</label>
+                    <input class="border-solid border-2 border-black-100 rounded-md h-10 pl-2" type="text" id="team_bonus" name="team_bonus" value=""><br>
+                    <label class="font-bold" for="civilization_bonus">Civilization bonus:</label>
+                    <textarea class="border-solid border-2 border-black-100 rounded-md h-32 pl-2" id="civilization_bonus" name="civilization_bonus"></textarea><br>
+                    <button class="h-10 px-5 w-60 mt-6 text-blue-100 transition-colors duration-150 bg-blue-700 rounded-lg focus:shadow-outline hover:bg-blue-800" type="submit">Update Civilization</button>                  
                 </form>
+            <div class="mt-8">
+                <a class="hover:text-blue-400" href="/">&#8592; Back to civilizations</a>
             </div>
         </div>
     </div>
-@endsection --}}
+@endsection

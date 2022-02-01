@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Civilization extends Model
 {
     use HasFactory;
-/*     protected $table = 'civilizations';
- */
+    protected $table = 'civilizations';
+
     public $timestamps = false;
 }

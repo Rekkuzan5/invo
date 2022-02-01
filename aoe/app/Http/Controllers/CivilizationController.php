@@ -24,6 +24,10 @@ class CivilizationController extends Controller
         return view('/civilizations.show', ['empire' => $empire]);
     }
 
+
+    public function create() {
+        return view('civilizations.create');
+    }
         //change to save/update instead of create//
 /*     public function create($id) {
             error_log($id);
@@ -60,7 +64,7 @@ class CivilizationController extends Controller
     } 
     
     // Function for creating a new empire for testing //
-/*     public function store() {
+        public function store() {
 
         error_log(request('name'));
 
@@ -75,14 +79,15 @@ class CivilizationController extends Controller
         error_log($civilization);
         $civilization->save();
 
-        return redirect('/civilizations')->with('message', 'Empire successfully created');
+/*         return view('/civilizations.update', ['civilization' => $civilization]);
+ */        return redirect('/')->with('message', 'Empire successfully created');
     }
-*/
+
     public function destroy($id) {
         $civilization = Civilization::findOrFail($id);
         $civilization->delete();
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Empire successfully deleted');
     }
 
 }

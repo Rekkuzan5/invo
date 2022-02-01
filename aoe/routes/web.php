@@ -12,6 +12,7 @@ Route::get('/', [CivilizationController::class, 'index']);
 /* Route::get('/civilizations/{id}', [CivilizationController::class, 'update']);
  *//* Route::get('/civilizations/edit/{id}', [CivilizationController::class, 'edit']); */
 Route::post('/civilizations/{id}', [CivilizationController::class, 'update']);
-/* Route::post('/civilizations', [CivilizationController::class, 'store']);
- */Route::get('/civilizations/{id}', [CivilizationController::class, 'show']); 
+Route::get('/civilizations/create', [CivilizationController::class, 'create']);
+Route::post('/civilizations', [CivilizationController::class, 'store']);
+Route::get('/civilizations/{id}', [CivilizationController::class, 'show']); 
 Route::delete('/civilizations/{id}', [CivilizationController::class, 'destroy']);
