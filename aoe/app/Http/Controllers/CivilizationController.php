@@ -17,6 +17,7 @@ class CivilizationController extends Controller
         ]);
     }
 
+    // Display civilizations from DB on page //
     public function show($id) {
 
         $empire = Civilization::findOrFail($id);
@@ -24,32 +25,12 @@ class CivilizationController extends Controller
         return view('/civilizations.show', ['empire' => $empire]);
     }
 
-
     public function create() {
         return view('civilizations.create');
     }
-        //change to save/update instead of create//
-/*     public function create($id) {
-            error_log($id);
 
-            $civilization = Civilization::find($id);
- */           
-/*             $civilization->name = request('name');
-            $civilization->expansion = request('expansion');
-            $civilization->army_type = request('army_type');
-            $civilization->team_bonus = request('team_bonus');
-            $civilization->civilization_bonus = request('civilization_bonus'); */
-
-/*             error_log($civilization);
-            $civilization->save();
-           return view('/civilizations.update', ['civilization' => $civilization]);
-/*         $civilization = new Civilization();
-        $civilization->exists = true;
-        $civilization
- *//*         return view('/civilizations.update');
- */    
-
-       public function update($id) {
+    // Function for updating existing civilization //
+    public function update($id) {
 
         $civilization = Civilization::find($id);
 
@@ -64,7 +45,7 @@ class CivilizationController extends Controller
     } 
     
     // Function for creating a new empire for testing //
-        public function store() {
+    public function store() {
 
         error_log(request('name'));
 
@@ -79,10 +60,10 @@ class CivilizationController extends Controller
         error_log($civilization);
         $civilization->save();
 
-/*         return view('/civilizations.update', ['civilization' => $civilization]);
- */        return redirect('/')->with('message', 'Empire successfully created');
+        return redirect('/')->with('message', 'Empire successfully created');
     }
 
+    // Delete function //
     public function destroy($id) {
         $civilization = Civilization::findOrFail($id);
         $civilization->delete();
